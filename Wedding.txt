@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <style>
+    :root {
+      --ink: #2f2a2a;
+      --rose: #b85c72;
+      --rose-dark: #8f3f55;
+      --blush: #f8e8e9;
+      --cream: #fff1d8;
+      --sage: #7d9176;
+      --paper: #fffaf6;
+      --gold: #c59b58;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(197, 155, 88, 0.36), transparent 32%),
+        radial-gradient(circle at 88% 18%, rgba(184, 92, 114, 0.22), transparent 30%),
+        linear-gradient(135deg, #fff4df 0%, #f9d7bf 45%, #eeb7a1 100%);
+      display: grid;
+      place-items: center;
+      padding: 32px 16px;
+    }
+
+    .invitation {
+      width: min(920px, 100%);
+      background: rgba(255, 250, 246, 0.96);
+      border: 1px solid rgba(197, 155, 88, 0.35);
+      border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(84, 52, 55, 0.18);
+      overflow: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 64px 28px 48px;
+      background:
+        linear-gradient(rgba(255, 250, 246, 0.86), rgba(255, 250, 246, 0.92)),
+        repeating-linear-gradient(45deg, rgba(197, 155, 88, 0.12) 0 1px, transparent 1px 16px);
+      border-bottom: 1px solid rgba(197, 155, 88, 0.3);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 5.8rem);
+      line-height: 0.95;
+      color: var(--rose-dark);
+      font-weight: 400;
+    }
+
+    .date {
+      margin: 24px auto 0;
+      width: fit-content;
+      padding: 10px 20px;
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #624d36;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    section { padding: 40px; }
+
+    .venue {
+      background: #fffdf9;
+      border-right: 1px solid rgba(197, 155, 88, 0.25);
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: 1.6rem;
+      color: var(--rose-dark);
+      font-weight: 400;
+    }
+
+    .detail {
+      margin: 0 0 18px;
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-weight: 700;
+    }
+
+    form { display: grid; gap: 18px; }
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    legend,
+    label {
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #4f4545;
+      font-weight: 700;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      margin-top: 8px;
+      padding: 13px 14px;
+      border: 1px solid rgba(143, 63, 85, 0.28);
+      border-radius: 6px;
+      background: #fffdf9;
+      color: var(--ink);
+      font: 1rem Arial, sans-serif;
+    }
+
+    .attendee-count {
+      display: none;
+    }
+
+    .attendee-count.is-visible {
+      display: block;
+    }
+
+    .radio-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .radio-row label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 112px;
+      padding: 12px 14px;
+      border: 1px solid rgba(143, 63, 85, 0.25);
+      border-radius: 6px;
+      background: var(--blush);
+      cursor: pointer;
+    }
+
+    button {
+      justify-self: start;
+      border: 0;
+      border-radius: 6px;
+      padding: 14px 24px;
+      background: var(--rose);
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 10px 18px rgba(184, 92, 114, 0.24);
+    }
+
+    button:hover { background: var(--rose-dark); }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      background: #314331;
+      color: #fff8f1;
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 720px) {
+      main { grid-template-columns: 1fr; }
+
+      .venue {
+        border-right: 0;
+        border-bottom: 1px solid rgba(197, 155, 88, 0.25);
+      }
+
+      section { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <article class="invitation" aria-label="Wedding invitation">
+    <header>
+      <p class="eyebrow">Together with their families</p>
+      <h1>Naveen Boniface<br>&amp;<br>Sneha Anna George</h1>
+      <p class="date">Jan 3rd, 2027</p>
+    </header>
+
+    <main>
+      <section class="venue">
+        <h2>Venue Details</h2>
+        <p class="detail">
+          <span class="label">Ceremony &amp; Reception</span>
+          Zara comvension Center
+        </p>
+        <p class="detail">
